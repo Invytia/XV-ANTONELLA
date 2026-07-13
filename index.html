@@ -194,13 +194,13 @@
         
         .main-title { 
             font-family: 'Pinyon Script', cursive; 
-            font-size: 90px; 
+            font-size: 82px; /* Reducido para mejor proporción */
             color: var(--text-deep); 
             margin-bottom: 2px; 
             text-shadow: 0 1px 3px rgba(255,255,255,0.8); 
             line-height: 1;
-            /* Se retira translateX para evitar desbordes; se usa padding para centrar el peso óptico */
-            padding-right: 15px; 
+            /* Se aumenta el padding derecho para empujar visualmente a la izquierda */
+            padding-right: 35px; 
             display: block;
             width: 100%;
             text-align: center;
@@ -374,8 +374,8 @@
         }
 
         @media(max-width:400px){
-            /* Se baja sutilmente el tamaño de fuente para garantizar el encuadre */
-            .main-title{font-size:75px;}
+            /* Se adapta la fuente y el padding para conservar la simetría óptica en celulares */
+            .main-title{font-size:68px; padding-right: 25px;}
             .invitation-frame{padding:45px 22px}
             .bloque-vidrio,.bloque-vidrio-alt{margin:0 -22px; padding: 25px 20px;}
         }
