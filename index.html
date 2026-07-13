@@ -26,22 +26,31 @@
             overflow-x: hidden;
         }
 
-        /* ====== ANIMACIONES DE TEXTO ====== */
-        .reveal-text {
+        /* ====== NUEVAS ANIMACIONES DE ENTRADA ====== */
+        .reveal-up {
             opacity: 0;
-            transform: translateY(25px);
+            transform: translateY(35px);
             transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .reveal-text.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.96) translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
+        .reveal-up.visible, .reveal-scale.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        /* Retrasos para cascada de animación */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
 
         /* ====== SOBRE REDISEÑADO ====== */
         #envelope-screen {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
-            background: url('assets/imagen.jpg') no-repeat center center;
+            background: url('assets/fondo.jpg') no-repeat center center;
             background-size: cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             z-index: 1000;
@@ -92,6 +101,7 @@
             color: rgba(255,245,220,0.95);
             text-shadow: 0 0 20px rgba(201,155,36,0.5), 0 2px 8px rgba(0,0,0,0.6);
             pointer-events: none; z-index: 15;
+            padding-right: 8px; /* Ajuste óptico ligero para Pinyon Script en el sobre */
         }
         .env-date-label {
             position: absolute; top: 120px; left: 0; right: 0; text-align: center;
@@ -119,9 +129,9 @@
             box-shadow: 0 -8px 30px rgba(0,0,0,0.3);
         }
         .envelope-wrapper.open .letter-peek { height: 80px; opacity: 1; top: -40px; }
-        .letter-peek-inner { text-align: center; opacity: 0; transition: opacity 0.4s ease 1.1s; }
+        .letter-peek-inner { text-align: center; opacity: 0; transition: opacity 0.4s ease 1.1s; width: 100%; }
         .envelope-wrapper.open .letter-peek-inner { opacity: 1; }
-        .letter-peek-name { font-family: 'Pinyon Script', cursive; font-size: 28px; color: var(--text-accent); line-height: 1; }
+        .letter-peek-name { font-family: 'Pinyon Script', cursive; font-size: 28px; color: var(--text-accent); line-height: 1; padding-right: 6px; }
         .letter-peek-date { font-family: 'Cinzel', serif; font-size: 7.5px; letter-spacing: 3px; color: var(--text-gold); margin-top: 2px; text-transform: uppercase; }
 
         .wax-seal {
@@ -147,7 +157,7 @@
 
         #main-invitation::before {
             content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: url('assets/imagen.jpg') no-repeat center center;
+            background: url('assets/fondo.jpg') no-repeat center center;
             background-size: cover; z-index: -1; will-change: transform; image-rendering: high-quality;
         }
         body.content-active #main-invitation { opacity: 1; transform: translateY(0); }
@@ -156,7 +166,7 @@
             max-width: 500px; width: 100%;
             border: 1px solid rgba(160,110,200,0.6);
             padding: 50px 38px; text-align: center; position: relative;
-            background: rgba(245, 235, 255, 0.92); /* Lila base más notorio */
+            background: rgba(245, 235, 255, 0.92); 
             box-shadow: 0 15px 50px rgba(45,22,61,0.35), 0 0 0 1px rgba(255,255,255,0.7) inset;
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border-radius: 4px; overflow: visible;
@@ -173,7 +183,7 @@
             50% { opacity:1;transform:scale(1.1) rotate(20deg); filter: drop-shadow(0 0 5px var(--text-gold)); }
         }
 
-        /* ====== TIPOGRAFÍA AUMENTADA ====== */
+        /* ====== TIPOGRAFÍA AUMENTADA Y CORREGIDA ====== */
         .section-heading, .section-heading-sm {
             font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 500;
             color: var(--text-accent); text-transform: none; line-height: 1.3;
@@ -183,11 +193,19 @@
         .section-tag { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 18px; letter-spacing: 2px; color: var(--text-accent); margin-bottom: 14px; font-weight: 500; }
         
         .main-title { 
-            font-family:'Pinyon Script',cursive; font-size:96px; color:var(--text-deep); 
-            margin-bottom:2px; text-shadow:0 1px 3px rgba(255,255,255,0.8); line-height:1;
-            transform: translateX(-18px); /* Ajuste óptico de inclinación */
-            display: inline-block;
+            font-family: 'Pinyon Script', cursive; 
+            font-size: 90px; 
+            color: var(--text-deep); 
+            margin-bottom: 2px; 
+            text-shadow: 0 1px 3px rgba(255,255,255,0.8); 
+            line-height: 1;
+            /* Se retira translateX para evitar desbordes; se usa padding para centrar el peso óptico */
+            padding-right: 15px; 
+            display: block;
+            width: 100%;
+            text-align: center;
         }
+
         .full-name { font-family:'Cinzel',serif;font-size:14px;letter-spacing:5px;color:var(--text-muted);margin-bottom:30px;font-weight:400;text-transform:uppercase; }
         .phrase { font-family:'EB Garamond','Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text-muted);line-height:1.6;margin-bottom:35px;padding:0 10px;font-weight:400; }
         .family-names { font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;font-style:italic;color:var(--text-deep);line-height:1.6;margin-top:6px; }
@@ -265,8 +283,8 @@
             background:linear-gradient(to bottom, transparent, rgba(201,155,36,0.7) 8%, rgba(201,155,36,0.7) 92%, transparent);
             transform:translateX(-50%);
         }
-        .itin-row { display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:15px; opacity:0; transform:translateY(16px); transition:opacity 0.6s ease,transform 0.6s ease; }
-        .itin-row.visible { opacity:1; transform:translateY(0); }
+        .itin-row { display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:15px; opacity:0; transform:translateY(25px) scale(0.95); transition:opacity 0.6s ease,transform 0.6s ease; }
+        .itin-row.visible { opacity:1; transform:translateY(0) scale(1); }
         .itin-hora { width:calc(50% - 28px); text-align:right; padding-right:16px; font-family:'Cinzel',serif; font-size:12px; font-weight:600; letter-spacing:1px; color:var(--text-gold); flex-shrink:0; }
         .itin-node { width:28px; height:28px; flex-shrink:0; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
         .itin-node::before { content:'☀'; font-size:24px; color:var(--text-gold); text-shadow: 0 0 12px rgba(201,155,36,0.5); transition:all 0.3s ease; }
@@ -332,9 +350,9 @@
 
         /* ====== LINTERNAS FLOTANTES (AHORA FIXED) ====== */
         #lanterns-container {
-            position: fixed; /* Esto asegura que floten en todo el documento */
+            position: fixed; 
             top: 0; left: 0; width: 100%; height: 100vh;
-            overflow: hidden; pointer-events: none; z-index: 5; /* Z-index 5 para pasar sobre el frame */
+            overflow: hidden; pointer-events: none; z-index: 5;
         }
         .lantern-light {
             position: absolute;
@@ -356,7 +374,8 @@
         }
 
         @media(max-width:400px){
-            .main-title{font-size:72px}
+            /* Se baja sutilmente el tamaño de fuente para garantizar el encuadre */
+            .main-title{font-size:75px;}
             .invitation-frame{padding:45px 22px}
             .bloque-vidrio,.bloque-vidrio-alt{margin:0 -22px; padding: 25px 20px;}
         }
@@ -366,7 +385,6 @@
     <audio id="song" src="assets/song.mp3" loop preload="auto"></audio>
     <canvas id="glitter-canvas"></canvas>
     
-    <!-- LINTERNAS AHORA A NIVEL BODY Y FIXED -->
     <div id="lanterns-container"></div>
 
     <button id="music-control-btn" onclick="toggleMusic()" aria-label="Control de música">
@@ -464,45 +482,45 @@
             <div class="frame-sparkle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2 L13.2 10.8 L22 12 L13.2 13.2 L12 22 L10.8 13.2 L2 12 L10.8 10.8 Z" fill="#ffcc00" opacity="0.8"/></svg></div>
             <div class="frame-sparkle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2 L13.2 10.8 L22 12 L13.2 13.2 L12 22 L10.8 13.2 L2 12 L10.8 10.8 Z" fill="#ffcc00" opacity="0.9"/></svg></div>
 
-            <div class="lotus-header reveal-text">
+            <div class="lotus-header reveal-up">
                 <svg viewBox="0 0 24 24"><path d="M12,2L14.2,8.5L21,9.3L15.6,13.6L17.5,20.2L12,16.5L6.5,20.2L8.4,13.6L3,9.3L9.8,8.5L12,2Z"/></svg>
             </div>
 
-            <div class="section-tag reveal-text">Mis XV Años</div>
-            <h1 class="main-title reveal-text">Antonella</h1>
-            <div class="full-name reveal-text">Vasquez Zamudio</div>
+            <div class="section-tag reveal-up delay-1">Mis XV Años</div>
+            <h1 class="main-title reveal-up delay-2">Antonella</h1>
+            <div class="full-name reveal-up delay-3">Vasquez Zamudio</div>
 
-            <p class="phrase reveal-text">"Y por fin veo la luz... Hoy comienza una nueva etapa mágica en mi vida y quiero compartirla con las personas que más amo."</p>
+            <p class="phrase reveal-up">"Y por fin veo la luz... Hoy comienza una nueva etapa mágica en mi vida y quiero compartirla con las personas que más amo."</p>
             
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="info-block reveal-text">
+            <div class="info-block reveal-up">
                 <div class="info-label">Con la bendición de mis padres</div>
                 <div class="family-names">Nahoky Vasquez Aguilar<br>Violeta Zamudio Bermudez</div>
             </div>
-            <div class="info-block reveal-text">
+            <div class="info-block reveal-up">
                 <div class="info-label">Mis Padrinos</div>
                 <div class="family-names">Valentin Vasquez Aguilar<br>Magnolia Aguilar Briceño</div>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="section-heading-sm reveal-text">Cuenta Regresiva</div>
-            <div class="countdown-grid reveal-text" id="countdown-timer">
+            <div class="section-heading-sm reveal-up">Cuenta Regresiva</div>
+            <div class="countdown-grid reveal-scale" id="countdown-timer">
                 <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Días</span></div>
                 <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
                 <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
                 <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Seg</span></div>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="bloque-vidrio reveal-text">
-                <div class="section-heading">El Gran Día</div>
-                <div style="font-family:'Cinzel',serif;font-size:30px;font-weight:600;color:var(--text-deep);letter-spacing:4px;">07 · AGO · 2026</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text-muted);margin-top:6px; font-weight:600;">Viernes</div>
+            <div class="bloque-vidrio reveal-scale">
+                <div class="section-heading reveal-up">El Gran Día</div>
+                <div class="reveal-up delay-1" style="font-family:'Cinzel',serif;font-size:30px;font-weight:600;color:var(--text-deep);letter-spacing:4px;">07 · AGO · 2026</div>
+                <div class="reveal-up delay-2" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text-muted);margin-top:6px; font-weight:600;">Viernes</div>
                 
-                <div class="calendar-widget">
+                <div class="calendar-widget reveal-up delay-3">
                     <div class="calendar-header">2026 <div class="calendar-month">Agosto</div></div>
                     <div class="calendar-body">
                         <div class="calendar-days-header">
@@ -518,19 +536,18 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-calendario" onclick="addToCalendar()">
+                <button class="btn-calendario reveal-up delay-3" onclick="addToCalendar()">
                     <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.89 3 3 3.9 3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H5V9h14v10zm0-12H5V5h14v2zM7 11h5v5H7z"/></svg>
                     Guardar la fecha
                 </button>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <!-- DISEÑO DE UBICACIÓN ACTUALIZADO -->
-            <div class="info-block reveal-text">
+            <div class="info-block reveal-up">
                 <div class="section-heading">Recepción</div>
                 
-                <div class="location-wrapper">
+                <div class="location-wrapper reveal-scale delay-1">
                     <div class="location-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     </div>
@@ -541,10 +558,10 @@
                 </div>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="bloque-vidrio-alt reveal-text">
-                <div class="section-heading">Itinerario de la Noche</div>
+            <div class="bloque-vidrio-alt reveal-scale">
+                <div class="section-heading reveal-up">Itinerario de la Noche</div>
                 <div class="itinerario-timeline" id="itinerario">
                     <div class="itin-row">
                         <span class="itin-hora">6:00 P.M.</span>
@@ -582,39 +599,39 @@
                 </div>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="bloque-vidrio reveal-text">
-                <div class="section-heading">Código de Vestimenta</div>
-                <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:600;letter-spacing:6px;color:var(--text-accent);margin-top:4px;">Elegante</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--text-muted);margin-top:10px;line-height:1.6;font-weight:600;">
+            <div class="bloque-vidrio reveal-scale">
+                <div class="section-heading reveal-up">Código de Vestimenta</div>
+                <div class="reveal-up delay-1" style="font-family:'Cinzel',serif;font-size:24px;font-weight:600;letter-spacing:6px;color:var(--text-accent);margin-top:4px;">Elegante</div>
+                <div class="reveal-up delay-2" style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--text-muted);margin-top:10px;line-height:1.6;font-weight:600;">
                     Por favor reserva los colores <strong>Morado y Lila</strong> para la festejada.
                 </div>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="bloque-vidrio-alt reveal-text">
-                <div class="section-heading">Mesa de Regalos</div>
-                <div style="margin-bottom: 15px;">
+            <div class="bloque-vidrio-alt reveal-scale">
+                <div class="section-heading reveal-up">Mesa de Regalos</div>
+                <div class="reveal-up delay-1" style="margin-bottom: 15px;">
                     <svg width="45" height="45" viewBox="0 0 24 24" fill="var(--text-gold)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </div>
-                <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:600;letter-spacing:4px;color:var(--text-deep);margin-bottom: 12px;text-transform:uppercase;">Lluvia de Sobres</div>
-                <p class="rsvp-intro" style="font-size:19px;">
+                <div class="reveal-up delay-2" style="font-family:'Cinzel',serif;font-size:22px;font-weight:600;letter-spacing:4px;color:var(--text-deep);margin-bottom: 12px;text-transform:uppercase;">Lluvia de Sobres</div>
+                <p class="rsvp-intro reveal-up delay-3" style="font-size:19px;">
                     El regalo más hermoso es tu presencia. Sin embargo, si deseas obsequiarme un detalle para este nuevo comienzo, tendremos un buzón para lluvia de sobres en el evento.
                 </p>
-                <div style="font-family:'Montserrat',sans-serif;font-size:12px;color:var(--text-accent);margin-top:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">
+                <div class="reveal-up delay-3" style="font-family:'Montserrat',sans-serif;font-size:12px;color:var(--text-accent);margin-top:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">
                     (Aporte sugerido a partir de S/ 30.00. ¡Gracias de corazón!)
                 </div>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="bloque-vidrio reveal-text">
-                <div class="section-heading">Cámara en Vivo</div>
-                <p class="rsvp-intro">Ayúdame a capturar cada destello de esta noche. Toca el botón para subir tus fotos y videos directo a nuestra galería.</p>
+            <div class="bloque-vidrio reveal-scale">
+                <div class="section-heading reveal-up">Cámara en Vivo</div>
+                <p class="rsvp-intro reveal-up delay-1">Ayúdame a capturar cada destello de esta noche. Toca el botón para subir tus fotos y videos directo a nuestra galería.</p>
                 
-                <a href="https://drive.google.com/drive/folders/1yTFgpFdocCy6EIFpKcOT8_7wnewX4pm7?usp=sharing" target="_blank" style="text-decoration: none;">
+                <a class="reveal-up delay-2" href="https://drive.google.com/drive/folders/1yTFgpFdocCy6EIFpKcOT8_7wnewX4pm7?usp=sharing" target="_blank" style="text-decoration: none; display: block;">
                     <button class="btn-confirmar" style="margin-top: 10px;">
                         <svg viewBox="0 0 24 24"><path d="M4 4h3l2-2h6l2 2h3c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm8 3c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>
                         Compartir Fotos Aquí
@@ -622,19 +639,18 @@
                 </a>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <!-- CONFIRMACIÓN CON SELECTOR -->
-            <div class="bloque-vidrio-alt reveal-text">
-                <div class="section-heading">Confirmación de Asistencia</div>
-                <p class="rsvp-intro">Será un honor contar con tu luz en esta noche mágica. Por favor confirma tu asistencia.</p>
+            <div class="bloque-vidrio-alt reveal-scale">
+                <div class="section-heading reveal-up">Confirmación de Asistencia</div>
+                <p class="rsvp-intro reveal-up delay-1">Será un honor contar con tu luz en esta noche mágica. Por favor confirma tu asistencia.</p>
                 
-                <div class="rsvp-input-wrap">
+                <div class="rsvp-input-wrap reveal-up delay-2">
                     <label class="rsvp-input-label" for="guest-name">Nombre Completo</label>
                     <input type="text" id="guest-name" class="rsvp-input" placeholder="Escribe tu nombre aquí…">
                 </div>
 
-                <div class="rsvp-input-wrap" style="margin-top: 15px;">
+                <div class="rsvp-input-wrap reveal-up delay-3" style="margin-top: 15px;">
                     <label class="rsvp-input-label" for="guest-attend">¿Nos acompañarás?</label>
                     <select id="guest-attend" class="rsvp-input">
                         <option value="Sí, ahí estaré">Sí, ahí estaré</option>
@@ -642,18 +658,20 @@
                     </select>
                 </div>
 
-                <button onclick="sendConfirmationViaWhatsApp()" class="btn-confirmar" style="margin-top: 15px;">
-                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Confirmar por WhatsApp
-                </button>
+                <div class="reveal-up delay-3">
+                    <button onclick="sendConfirmationViaWhatsApp()" class="btn-confirmar" style="margin-top: 15px;">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        Confirmar por WhatsApp
+                    </button>
+                </div>
             </div>
 
-            <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-scale"><div class="divider-ornate-diamond"></div></div>
 
-            <div class="bloque-vidrio reveal-text">
-                <div class="section-heading">Muro de los Deseos</div>
-                <p class="rsvp-intro">Tu mensaje iluminará mi camino como una linterna flotante. ¡Déjame tus buenos deseos!</p>
-                <form id="wish-form" style="text-align: left;">
+            <div class="bloque-vidrio reveal-scale">
+                <div class="section-heading reveal-up">Muro de los Deseos</div>
+                <p class="rsvp-intro reveal-up delay-1">Tu mensaje iluminará mi camino como una linterna flotante. ¡Déjame tus buenos deseos!</p>
+                <form id="wish-form" style="text-align: left;" class="reveal-up delay-2">
                     <div class="rsvp-input-wrap">
                         <label class="rsvp-input-label" for="wish-nombre">Tu nombre</label>
                         <input type="text" id="wish-nombre" class="rsvp-input" placeholder="Ej. Camila" required>
@@ -669,8 +687,8 @@
                 </form>
             </div>
 
-            <div class="divider-ornate reveal-text" style="margin-top:35px;"><div class="divider-ornate-diamond"></div></div>
-            <div class="invitation-footer reveal-text">Diseñado con ♥ por Invytia</div>
+            <div class="divider-ornate reveal-scale" style="margin-top:35px;"><div class="divider-ornate-diamond"></div></div>
+            <div class="invitation-footer reveal-up">Diseñado con ♥ por Invytia</div>
 
         </div>
     </main>
@@ -736,7 +754,7 @@
 
         /* ===== INTERSECTION OBSERVERS ====== */
         function initObservers(){
-            const obsOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+            const obsOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
             
             const textObs = new IntersectionObserver((entries)=>{
                 entries.forEach(entry => {
@@ -746,7 +764,7 @@
                     }
                 });
             }, obsOptions);
-            document.querySelectorAll('.reveal-text').forEach(el => textObs.observe(el));
+            document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => textObs.observe(el));
 
             const itinObs = new IntersectionObserver((entries)=>{
                 entries.forEach(entry=>{
@@ -851,7 +869,7 @@
             document.getElementById("seconds").innerText=s<10?"0"+s:s;
         },1000);
 
-        /* ===== LINTERNAS FLOTANTES ===== */
+        /* ===== LINTERNAS FLOTANTES ====== */
         function createLanterns(){
             const c=document.getElementById('lanterns-container');
             for(let i=0;i<25;i++){
