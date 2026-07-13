@@ -7,13 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400;1,600&family=Cinzel:wght@300;400;600;700&family=Pinyon+Script&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta inspirada en Enredados: Morados, Lilas y Dorados */
-            --lila-bloque: rgba(225, 205, 245, 0.45);
-            --lila-bloque-borde: rgba(160, 110, 200, 0.25);
-            --lila-bloque-alt: rgba(240, 225, 255, 0.40);
+            /* Paleta Enredados Intensificada */
+            --lila-bloque: rgba(210, 180, 240, 0.75);
+            --lila-bloque-borde: rgba(140, 90, 180, 0.45);
+            --lila-bloque-alt: rgba(225, 200, 250, 0.70);
             --text-deep: #2d163d;
-            --text-accent: #783b96; /* Morado central */
-            --text-gold: #c99b24; /* Dorado sol/linterna */
+            --text-accent: #783b96; 
+            --text-gold: #c99b24; 
             --text-muted: #5e466b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* ====== ANIMACIONES DE TEXTO (NUEVO) ====== */
+        /* ====== ANIMACIONES DE TEXTO ====== */
         .reveal-text {
             opacity: 0;
             transform: translateY(25px);
@@ -50,7 +50,6 @@
         }
         #envelope-screen.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
 
-        /* Estrellas / Polvo de Hadas */
         .env-star {
             position: absolute; border-radius: 50%; background: #ffe9a6;
             animation: envTwinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
@@ -133,8 +132,8 @@
         .envelope-wrapper.open .wax-seal { transform: translateX(-50%) scale(0) rotate(45deg); opacity: 0; }
 
         .hint-text {
-            margin-top: 30px; text-align: center; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 4px;
-            color: rgba(201,155,36,0.8); animation: pulse 2.5s infinite; text-transform: uppercase; width: 310px;
+            margin-top: 30px; text-align: center; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 4px;
+            color: rgba(201,155,36,0.9); animation: pulse 2.5s infinite; text-transform: uppercase; width: 310px;
         }
 
         /* ====== MAIN ====== */
@@ -155,25 +154,13 @@
 
         .invitation-frame {
             max-width: 500px; width: 100%;
-            border: 1px solid rgba(160,110,200,0.5);
+            border: 1px solid rgba(160,110,200,0.6);
             padding: 50px 38px; text-align: center; position: relative;
-            background: rgba(250,248,255,0.82);
-            box-shadow: 0 15px 40px rgba(45,22,61,0.25), 0 0 0 1px rgba(255,255,255,0.6) inset;
+            background: rgba(245, 235, 255, 0.92); /* Lila base más notorio */
+            box-shadow: 0 15px 50px rgba(45,22,61,0.35), 0 0 0 1px rgba(255,255,255,0.7) inset;
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border-radius: 4px; overflow: visible;
         }
-
-        /* Foto Hero */
-        .hero-photo-wrap {
-            width: 240px; height: 320px; margin: 0 auto 25px auto;
-            border-radius: 120px 120px 0 0; padding: 6px;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(160,110,200,0.4);
-            box-shadow: 0 15px 35px rgba(45,22,61,0.15);
-        }
-        .hero-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 114px 114px 0 0; }
-
-        .hashtag-text { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 26px; color: var(--text-accent); margin: 10px 0 25px 0; letter-spacing: 1px; font-weight: 500; }
 
         .frame-sparkle { position:absolute;pointer-events:none;z-index:10; }
         .frame-sparkle svg { animation:sparkle-pulse 2.5s ease-in-out infinite; }
@@ -186,94 +173,169 @@
             50% { opacity:1;transform:scale(1.1) rotate(20deg); filter: drop-shadow(0 0 5px var(--text-gold)); }
         }
 
-        /* ====== TIPOGRAFÍA ====== */
+        /* ====== TIPOGRAFÍA AUMENTADA ====== */
         .section-heading, .section-heading-sm {
             font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 500;
             color: var(--text-accent); text-transform: none; line-height: 1.3;
         }
-        .section-heading { font-size: 26px; margin-bottom: 16px; letter-spacing: 1px; }
-        .section-heading-sm { font-size: 20px; margin-bottom: 12px; letter-spacing: 1px; }
-        .section-tag { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 16px; letter-spacing: 2px; color: var(--text-accent); margin-bottom: 14px; font-weight: 500; }
+        .section-heading { font-size: 30px; margin-bottom: 16px; letter-spacing: 1px; }
+        .section-heading-sm { font-size: 24px; margin-bottom: 12px; letter-spacing: 1px; }
+        .section-tag { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 18px; letter-spacing: 2px; color: var(--text-accent); margin-bottom: 14px; font-weight: 500; }
         
-        .main-title { font-family:'Pinyon Script',cursive;font-size:84px;color:var(--text-deep);margin-bottom:2px;text-shadow:0 1px 3px rgba(255,255,255,0.8);line-height:1; }
-        .full-name { font-family:'Cinzel',serif;font-size:11px;letter-spacing:5px;color:var(--text-muted);margin-bottom:30px;font-weight:400;text-transform:uppercase; }
-        .phrase { font-family:'EB Garamond','Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text-muted);line-height:1.8;margin-bottom:35px;padding:0 10px;font-weight:400; }
-        .family-names { font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;font-style:italic;color:var(--text-deep);line-height:1.75;margin-top:6px; }
+        .main-title { 
+            font-family:'Pinyon Script',cursive; font-size:96px; color:var(--text-deep); 
+            margin-bottom:2px; text-shadow:0 1px 3px rgba(255,255,255,0.8); line-height:1;
+            transform: translateX(-18px); /* Ajuste óptico de inclinación */
+            display: inline-block;
+        }
+        .full-name { font-family:'Cinzel',serif;font-size:14px;letter-spacing:5px;color:var(--text-muted);margin-bottom:30px;font-weight:400;text-transform:uppercase; }
+        .phrase { font-family:'EB Garamond','Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text-muted);line-height:1.6;margin-bottom:35px;padding:0 10px;font-weight:400; }
+        .family-names { font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;font-style:italic;color:var(--text-deep);line-height:1.6;margin-top:6px; }
         
-        .info-label { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 11px; letter-spacing: 3px; color: var(--text-gold); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+        .info-label { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--text-gold); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
         .info-block { margin-bottom:28px; }
 
         /* ====== DIVIDER ====== */
-        .divider-ornate { display:flex;align-items:center;justify-content:center;gap:8px;margin:28px auto; }
-        .divider-ornate::before,.divider-ornate::after { content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,155,36,0.4)); }
-        .divider-ornate::after { background:linear-gradient(to left,transparent,rgba(201,155,36,0.4)); }
-        .divider-ornate-diamond { width:6px;height:6px;background:var(--text-gold);transform:rotate(45deg);flex-shrink:0; box-shadow: 0 0 5px var(--text-gold); }
+        .divider-ornate { display:flex;align-items:center;justify-content:center;gap:8px;margin:32px auto; }
+        .divider-ornate::before,.divider-ornate::after { content:'';flex:1;height:1.5px;background:linear-gradient(to right,transparent,rgba(201,155,36,0.5)); }
+        .divider-ornate::after { background:linear-gradient(to left,transparent,rgba(201,155,36,0.5)); }
+        .divider-ornate-diamond { width:7px;height:7px;background:var(--text-gold);transform:rotate(45deg);flex-shrink:0; box-shadow: 0 0 6px var(--text-gold); }
 
         /* ====== COUNTDOWN ====== */
-        .countdown-grid { display:flex;justify-content:center;gap:10px;margin:18px auto 6px auto;max-width:340px; }
-        .countdown-item { flex:1;background:rgba(255,255,255,0.7);border:1px solid rgba(120,59,150,0.15);padding:12px 5px;border-radius:4px;backdrop-filter:blur(6px); }
-        .countdown-number { font-family:'Cinzel',serif;font-size:24px;font-weight:600;color:var(--text-accent);display:block; }
-        .countdown-label { font-family:'Montserrat',sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:500; }
+        .countdown-grid { display:flex;justify-content:center;gap:12px;margin:18px auto 6px auto;max-width:360px; }
+        .countdown-item { flex:1;background:rgba(255,255,255,0.8);border:1px solid rgba(120,59,150,0.25);padding:14px 5px;border-radius:6px;backdrop-filter:blur(6px); }
+        .countdown-number { font-family:'Cinzel',serif;font-size:28px;font-weight:600;color:var(--text-accent);display:block; }
+        .countdown-label { font-family:'Montserrat',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:600; margin-top: 4px; display: block; }
 
         /* ====== BLOQUES VIDRIO ====== */
         .bloque-vidrio, .bloque-vidrio-alt {
-            border-radius:8px; padding:28px 26px; margin:0 -38px; position:relative;
-            backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            border-radius:10px; padding:32px 28px; margin:0 -38px; position:relative;
+            backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
         }
         .bloque-vidrio { background:var(--lila-bloque); border:1px solid var(--lila-bloque-borde); }
-        .bloque-vidrio-alt { background:var(--lila-bloque-alt); border:1px solid rgba(160,110,200,0.15); }
+        .bloque-vidrio-alt { background:var(--lila-bloque-alt); border:1px solid rgba(160,110,200,0.25); }
 
-        /* ====== CALENDARIO AGOSTO 2026 ====== */
-        .calendar-widget{ margin-top:18px; background:rgba(255,255,255,0.3); border:1px solid rgba(255,255,255,0.4); border-radius:18px; overflow:hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.05); }
-        .calendar-header{ padding:18px 20px 14px; text-align:center; position:relative; }
-        .calendar-header::after{ content:''; position:absolute; left:0; bottom:0; width:100%; height:1px; background:rgba(0,0,0,0.05); }
-        .calendar-year{ font-family:'Cinzel',serif; font-size:10px; letter-spacing:5px; text-transform:uppercase; opacity:0.9; }
-        .calendar-month{ margin-top:5px; font-family: 'Pinyon Script', cursive; font-size:36px; color:var(--text-accent); }
-        .calendar-body{ padding:18px 16px 20px; }
+        /* ====== CALENDARIO ====== */
+        .calendar-widget{ margin-top:20px; background:rgba(255,255,255,0.4); border:1px solid rgba(255,255,255,0.5); border-radius:18px; overflow:hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.05); }
+        .calendar-header{ padding:20px 20px 16px; text-align:center; position:relative; }
+        .calendar-header::after{ content:''; position:absolute; left:0; bottom:0; width:100%; height:1px; background:rgba(0,0,0,0.08); }
+        .calendar-year{ font-family:'Cinzel',serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; opacity:0.9; }
+        .calendar-month{ margin-top:5px; font-family: 'Pinyon Script', cursive; font-size:42px; color:var(--text-accent); }
+        .calendar-body{ padding:20px 16px 22px; }
         .calendar-days-header{ display:grid; grid-template-columns:repeat(7,1fr); margin-bottom:12px; }
-        .calendar-day-name{ text-align:center; font-family:'Montserrat', sans-serif; font-size:9px; letter-spacing:1.5px; color:var(--text-muted); text-transform:uppercase; }
-        .calendar-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:8px; }
-        .cal-day{ width:34px; height:34px; margin:auto; display:flex; align-items:center; justify-content:center; font-family: 'Cormorant Garamond', serif; font-size:17px; color:var(--text-deep); border-radius:50%; transition:all .3s ease; }
+        .calendar-day-name{ text-align:center; font-family:'Montserrat', sans-serif; font-size:11px; letter-spacing:1.5px; color:var(--text-muted); text-transform:uppercase; font-weight: 600;}
+        .calendar-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:10px; }
+        .cal-day{ width:38px; height:38px; margin:auto; display:flex; align-items:center; justify-content:center; font-family: 'Cormorant Garamond', serif; font-size:20px; color:var(--text-deep); border-radius:50%; transition:all .3s ease; }
         .cal-day.empty{ opacity:0; }
-        .cal-day.highlight{ background:var(--text-accent); color:#fff; font-weight:600; box-shadow: 0 4px 10px rgba(120,59,150,0.3); }
+        .cal-day.highlight{ background:var(--text-accent); color:#fff; font-weight:600; box-shadow: 0 4px 10px rgba(120,59,150,0.4); }
 
         .btn-calendario{
-            margin-top:18px; width:100%; border:1px solid rgba(120,59,150,0.3); border-radius:14px; padding:14px 18px;
+            margin-top:20px; width:100%; border:1px solid rgba(120,59,150,0.4); border-radius:14px; padding:16px 18px;
             background: transparent; color:var(--text-accent); display:flex; align-items:center; justify-content:center; gap:10px;
-            cursor:pointer; transition:.35s ease; font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; text-transform:uppercase;
+            cursor:pointer; transition:.35s ease; font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; font-weight: 600;
         }
-        .btn-calendario:hover{ transform:translateY(-2px); background: rgba(120,59,150,0.05); }
-        .btn-calendario svg{ width:16px; height:16px; fill:var(--text-accent); flex-shrink:0; }
+        .btn-calendario:hover{ transform:translateY(-2px); background: rgba(120,59,150,0.1); }
+        .btn-calendario svg{ width:18px; height:18px; fill:var(--text-accent); flex-shrink:0; }
 
-        /* ====== MAP CARDS ====== */
-        .map-card { margin-top:14px;border:1px solid rgba(120,59,150,0.2);background:rgba(255,255,255,0.9);border-radius:8px;overflow:hidden;text-align:left; }
-        .map-card-header { background:linear-gradient(135deg,var(--text-accent),#5e2a78);padding:11px 15px;display:flex;flex-direction:column;gap:2px; }
-        .map-card-tipo { font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.8); }
-        .map-card-nombre { font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:#fff;line-height:1.2; }
-        .map-card-body { padding:10px 14px 14px; }
-        .map-card-direccion { font-family:'Montserrat',sans-serif;font-size:11px;color:var(--text-muted);line-height:1.6;margin-bottom:8px; }
-        .map-wrapper { width:100%;height:220px;border-radius:4px;overflow:hidden;border:1px solid rgba(0,0,0,0.1); }
+        /* ====== NUEVA UBICACIÓN ====== */
+        .location-wrapper {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.45);
+            border: 1px solid rgba(160,110,200,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(45,22,61,0.08);
+        }
+        .location-icon { margin-bottom: 12px; }
+        .location-icon svg { width: 35px; height: 35px; fill: var(--text-gold); }
+        .location-title {
+            font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 28px;
+            color: var(--text-deep); margin-bottom: 16px; line-height: 1.2;
+        }
+        .map-iframe-container {
+            width: 100%; height: 260px; border-radius: 8px; overflow: hidden;
+            border: 2px solid var(--text-gold);
+            box-shadow: 0 5px 15px rgba(201,155,36,0.2);
+        }
 
         /* ====== ITINERARIO ====== */
-        .itinerario-timeline { margin-top:20px; position:relative; padding:0; }
+        .itinerario-timeline { margin-top:25px; position:relative; padding:0; }
         .itinerario-timeline::before {
-            content:''; position:absolute; left:50%; top:0; bottom:0; width:1px;
-            background:linear-gradient(to bottom, transparent, rgba(201,155,36,0.6) 8%, rgba(201,155,36,0.6) 92%, transparent);
+            content:''; position:absolute; left:50%; top:0; bottom:0; width:1.5px;
+            background:linear-gradient(to bottom, transparent, rgba(201,155,36,0.7) 8%, rgba(201,155,36,0.7) 92%, transparent);
             transform:translateX(-50%);
         }
-        .itin-row { display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:12px; opacity:0; transform:translateY(16px); transition:opacity 0.6s ease,transform 0.6s ease; }
+        .itin-row { display:flex; align-items:center; justify-content:center; position:relative; margin-bottom:15px; opacity:0; transform:translateY(16px); transition:opacity 0.6s ease,transform 0.6s ease; }
         .itin-row.visible { opacity:1; transform:translateY(0); }
-        .itin-hora { width:calc(50% - 26px); text-align:right; padding-right:16px; font-family:'Cinzel',serif; font-size:10px; font-weight:600; letter-spacing:1px; color:var(--text-gold); flex-shrink:0; }
-        .itin-node { width:26px; height:26px; flex-shrink:0; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
-        /* Sol de enredados simplificado para el timeline */
-        .itin-node::before { content:'☀'; font-size:22px; color:var(--text-gold); text-shadow: 0 0 10px rgba(201,155,36,0.4); transition:all 0.3s ease; }
-        .itin-evento { width:calc(50% - 26px); padding-left:16px; flex-shrink:0; }
-        .itin-evento-nombre { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; font-weight:600; color:var(--text-deep); line-height:1.1; text-align:left; }
-        .itin-evento-desc { font-family:'Montserrat',sans-serif; font-size:9px; color:var(--text-muted); margin-top:3px; text-align:left; text-transform:uppercase; letter-spacing: 1px;}
-        .itin-row.itin-main .itin-node::before { font-size:26px; text-shadow: 0 0 15px rgba(201,155,36,0.8); }
-        .itin-row.itin-main .itin-evento-nombre { font-size:23px; color:var(--text-accent); }
+        .itin-hora { width:calc(50% - 28px); text-align:right; padding-right:16px; font-family:'Cinzel',serif; font-size:12px; font-weight:600; letter-spacing:1px; color:var(--text-gold); flex-shrink:0; }
+        .itin-node { width:28px; height:28px; flex-shrink:0; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; }
+        .itin-node::before { content:'☀'; font-size:24px; color:var(--text-gold); text-shadow: 0 0 12px rgba(201,155,36,0.5); transition:all 0.3s ease; }
+        .itin-evento { width:calc(50% - 28px); padding-left:16px; flex-shrink:0; }
+        .itin-evento-nombre { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:24px; font-weight:600; color:var(--text-deep); line-height:1.1; text-align:left; }
+        .itin-evento-desc { font-family:'Montserrat',sans-serif; font-size:10px; color:var(--text-muted); margin-top:5px; text-align:left; text-transform:uppercase; letter-spacing: 1px; font-weight: 500;}
+        .itin-row.itin-main .itin-node::before { font-size:28px; text-shadow: 0 0 18px rgba(201,155,36,0.9); }
+        .itin-row.itin-main .itin-evento-nombre { font-size:28px; color:var(--text-accent); }
 
-        /* ====== LINTERNAS FLOTANTES (REEMPLAZA PÉTALOS) ====== */
+        /* ====== CONFIRMACIÓN & BOTONES ====== */
+        .rsvp-intro { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--text-muted);line-height:1.5;margin-bottom:24px; font-weight: 600;}
+        .rsvp-input-label { font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--text-accent);text-transform:uppercase;font-weight:600;display:block;margin-bottom:10px; }
+        
+        .rsvp-input { 
+            width:100%;padding:15px 18px;font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;
+            color:var(--text-deep);background:rgba(255,255,255,0.9);border:1px solid rgba(120,59,150,0.4);
+            border-radius:6px;outline:none;transition:border-color 0.3s,box-shadow 0.3s; 
+        }
+        select.rsvp-input {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23783b96'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 24px;
+            cursor: pointer;
+        }
+
+        .rsvp-input:focus { border-color:var(--text-accent);box-shadow:0 0 0 4px rgba(120,59,150,0.15); }
+        
+        .btn-confirmar {
+            display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;
+            padding:16px 24px;background:linear-gradient(135deg, var(--text-accent), #5e2a78);
+            color:#fff;border:none;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;
+            text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:6px;
+            box-shadow:0 6px 20px rgba(120,59,150,0.4);transition:all 0.4s ease;
+            position:relative;overflow:hidden;
+        }
+        .btn-confirmar::before { content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s; }
+        .btn-confirmar:hover::before { left:100%; }
+        .btn-confirmar:hover { box-shadow:0 8px 25px rgba(120,59,150,0.55);transform:translateY(-2px); }
+        .btn-confirmar svg { width:19px;height:19px;fill:#fff;flex-shrink:0; }
+
+        /* ====== CANVAS BRILLOS ====== */
+        #glitter-canvas { position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;opacity:0;transition:opacity 0.8s; }
+        #glitter-canvas.visible { opacity:1; }
+
+        /* ====== MÚSICA ====== */
+        #music-control-btn {
+            position:fixed;bottom:25px;right:25px;width:52px;height:52px;border-radius:50%;
+            background:rgba(45,22,61,0.85);border:1px solid rgba(201,155,36,0.6);color:#fff;
+            display:flex;justify-content:center;align-items:center;cursor:pointer;z-index:999;
+            box-shadow:0 0 20px rgba(201,155,36,0.4);opacity:0;visibility:hidden;
+            transition:opacity 0.5s,visibility 0.5s,transform 0.3s;backdrop-filter:blur(8px);
+        }
+        #music-control-btn:hover { transform:scale(1.08); background:rgba(45,22,61,1); }
+        #music-control-btn.visible { opacity:1;visibility:visible; }
+        #music-control-btn svg { width:22px;height:22px;fill:var(--text-gold); }
+
+        .lotus-header { margin-bottom:20px; }
+        .lotus-header svg { width:60px; height:60px; fill:var(--text-gold); filter: drop-shadow(0 0 6px rgba(201,155,36,0.5)); }
+        .invitation-footer { font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--text-muted);margin-top:30px;font-weight:600;text-transform:uppercase; }
+
+        /* ====== LINTERNAS FLOTANTES (AHORA FIXED) ====== */
+        #lanterns-container {
+            position: fixed; /* Esto asegura que floten en todo el documento */
+            top: 0; left: 0; width: 100%; height: 100vh;
+            overflow: hidden; pointer-events: none; z-index: 5; /* Z-index 5 para pasar sobre el frame */
+        }
         .lantern-light {
             position: absolute;
             background: radial-gradient(circle, #ffea8c 20%, #ffb429 80%);
@@ -288,60 +350,25 @@
         }
         @keyframes float-lantern {
             0% { transform: translateY(10vh) scale(0.5) rotate(-5deg); opacity: 0; }
-            20% { opacity: 0.85; }
-            80% { opacity: 0.6; transform: translateY(-70vh) scale(1) rotate(5deg); }
+            20% { opacity: 0.9; }
+            80% { opacity: 0.7; transform: translateY(-70vh) scale(1) rotate(5deg); }
             100% { transform: translateY(-110vh) scale(1.2) rotate(-5deg); opacity: 0; }
         }
 
-        /* ====== CONFIRMACIÓN & BOTONES ====== */
-        .rsvp-intro { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text-muted);line-height:1.6;margin-bottom:22px; font-weight: 500;}
-        .rsvp-input-label { font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--text-accent);text-transform:uppercase;font-weight:600;display:block;margin-bottom:8px; }
-        .rsvp-input { width:100%;padding:13px 16px;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--text-deep);background:rgba(255,255,255,0.8);border:1px solid rgba(120,59,150,0.3);border-radius:4px;outline:none;transition:border-color 0.3s,box-shadow 0.3s; }
-        .rsvp-input:focus { border-color:var(--text-accent);box-shadow:0 0 0 3px rgba(120,59,150,0.1); }
-        .btn-confirmar {
-            display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;
-            padding:15px 24px;background:linear-gradient(135deg, var(--text-accent), #5e2a78);
-            color:#fff;border:none;font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:3px;
-            text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:4px;
-            box-shadow:0 5px 18px rgba(120,59,150,0.35);transition:all 0.4s ease;
-            position:relative;overflow:hidden;
-        }
-        .btn-confirmar::before { content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s; }
-        .btn-confirmar:hover::before { left:100%; }
-        .btn-confirmar:hover { box-shadow:0 7px 25px rgba(120,59,150,0.5);transform:translateY(-1px); }
-        .btn-confirmar svg { width:17px;height:17px;fill:#fff;flex-shrink:0; }
-
-        /* ====== CANVAS BRILLOS ====== */
-        #glitter-canvas { position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;opacity:0;transition:opacity 0.8s; }
-        #glitter-canvas.visible { opacity:1; }
-
-        /* ====== MÚSICA ====== */
-        #music-control-btn {
-            position:fixed;bottom:25px;right:25px;width:48px;height:48px;border-radius:50%;
-            background:rgba(45,22,61,0.85);border:1px solid rgba(201,155,36,0.5);color:#fff;
-            display:flex;justify-content:center;align-items:center;cursor:pointer;z-index:999;
-            box-shadow:0 0 15px rgba(201,155,36,0.3);opacity:0;visibility:hidden;
-            transition:opacity 0.5s,visibility 0.5s,transform 0.3s;backdrop-filter:blur(8px);
-        }
-        #music-control-btn:hover { transform:scale(1.08); background:rgba(45,22,61,1); }
-        #music-control-btn.visible { opacity:1;visibility:visible; }
-        #music-control-btn svg { width:20px;height:20px;fill:var(--text-gold); }
-
-        .lotus-header { margin-bottom:20px; }
-        /* Sol vectorizado */
-        .lotus-header svg { width:54px; height:54px; fill:var(--text-gold); filter: drop-shadow(0 0 5px rgba(201,155,36,0.4)); }
-        .invitation-footer { font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--text-muted);margin-top:24px;font-weight:600;text-transform:uppercase; }
-
         @media(max-width:400px){
-            .main-title{font-size:62px}
-            .invitation-frame{padding:38px 22px}
-            .bloque-vidrio,.bloque-vidrio-alt{margin:0 -22px}
+            .main-title{font-size:72px}
+            .invitation-frame{padding:45px 22px}
+            .bloque-vidrio,.bloque-vidrio-alt{margin:0 -22px; padding: 25px 20px;}
         }
     </style>
 </head>
 <body>
     <audio id="song" src="assets/song.mp3" loop preload="auto"></audio>
     <canvas id="glitter-canvas"></canvas>
+    
+    <!-- LINTERNAS AHORA A NIVEL BODY Y FIXED -->
+    <div id="lanterns-container"></div>
+
     <button id="music-control-btn" onclick="toggleMusic()" aria-label="Control de música">
         <svg id="music-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
@@ -430,8 +457,6 @@
     </div>
 
     <main id="main-invitation">
-        <div id="lanterns-container" style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:1;"></div>
-
         <div class="invitation-frame" style="z-index:2;">
             
             <div class="frame-sparkle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2 L13.2 10.8 L22 12 L13.2 13.2 L12 22 L10.8 13.2 L2 12 L10.8 10.8 Z" fill="#ffcc00" opacity="0.9"/></svg></div>
@@ -441,10 +466,6 @@
 
             <div class="lotus-header reveal-text">
                 <svg viewBox="0 0 24 24"><path d="M12,2L14.2,8.5L21,9.3L15.6,13.6L17.5,20.2L12,16.5L6.5,20.2L8.4,13.6L3,9.3L9.8,8.5L12,2Z"/></svg>
-            </div>
-
-            <div class="hero-photo-wrap reveal-text">
-                <img src="assets/paula-hero.jpg" alt="Antonella" class="hero-photo">
             </div>
 
             <div class="section-tag reveal-text">Mis XV Años</div>
@@ -478,8 +499,8 @@
 
             <div class="bloque-vidrio reveal-text">
                 <div class="section-heading">El Gran Día</div>
-                <div style="font-family:'Cinzel',serif;font-size:26px;font-weight:600;color:var(--text-deep);letter-spacing:3px;">07 · AGO · 2026</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text-muted);margin-top:5px; font-weight:600;">Viernes</div>
+                <div style="font-family:'Cinzel',serif;font-size:30px;font-weight:600;color:var(--text-deep);letter-spacing:4px;">07 · AGO · 2026</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--text-muted);margin-top:6px; font-weight:600;">Viernes</div>
                 
                 <div class="calendar-widget">
                     <div class="calendar-header">2026 <div class="calendar-month">Agosto</div></div>
@@ -505,19 +526,17 @@
 
             <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
 
+            <!-- DISEÑO DE UBICACIÓN ACTUALIZADO -->
             <div class="info-block reveal-text">
                 <div class="section-heading">Recepción</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text-muted);margin-bottom:4px; font-weight: 500;">Ciro's Eventos</div>
                 
-                <div class="map-card" style="margin-bottom:14px;">
-                    <div class="map-card-header">
-                        <span class="map-card-tipo">Ubicación del Evento</span>
-                        <span class="map-card-nombre">Ciro's Eventos</span>
+                <div class="location-wrapper">
+                    <div class="location-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     </div>
-                    <div class="map-card-body">
-                        <div class="map-wrapper">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.9188379523603!2d-78.59510072457809!3d-9.07115869365694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ab811428204ab1%3A0x1bdce687ffae256!2sCiro'S!5e0!3m2!1ses-419!2smx!4v1783902757661!5m2!1ses-419!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                        </div>
+                    <div class="location-title">Ciro's Eventos</div>
+                    <div class="map-iframe-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.9188379523603!2d-78.59510072457809!3d-9.07115869365694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ab811428204ab1%3A0x1bdce687ffae256!2sCiro'S!5e0!3m2!1ses-419!2smx!4v1783902757661!5m2!1ses-419!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
             </div>
@@ -567,8 +586,8 @@
 
             <div class="bloque-vidrio reveal-text">
                 <div class="section-heading">Código de Vestimenta</div>
-                <div style="font-family:'Cinzel',serif;font-size:20px;font-weight:600;letter-spacing:6px;color:var(--text-accent);margin-top:2px;">Elegante</div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--text-muted);margin-top:8px;line-height:1.6;font-weight:500;">
+                <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:600;letter-spacing:6px;color:var(--text-accent);margin-top:4px;">Elegante</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--text-muted);margin-top:10px;line-height:1.6;font-weight:600;">
                     Por favor reserva los colores <strong>Morado y Lila</strong> para la festejada.
                 </div>
             </div>
@@ -578,13 +597,13 @@
             <div class="bloque-vidrio-alt reveal-text">
                 <div class="section-heading">Mesa de Regalos</div>
                 <div style="margin-bottom: 15px;">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--text-gold)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <svg width="45" height="45" viewBox="0 0 24 24" fill="var(--text-gold)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </div>
-                <div style="font-family:'Cinzel',serif;font-size:18px;font-weight:600;letter-spacing:4px;color:var(--text-deep);margin-bottom: 10px;text-transform:uppercase;">Lluvia de Sobres</div>
-                <p class="rsvp-intro" style="font-size:16px;">
+                <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:600;letter-spacing:4px;color:var(--text-deep);margin-bottom: 12px;text-transform:uppercase;">Lluvia de Sobres</div>
+                <p class="rsvp-intro" style="font-size:19px;">
                     El regalo más hermoso es tu presencia. Sin embargo, si deseas obsequiarme un detalle para este nuevo comienzo, tendremos un buzón para lluvia de sobres en el evento.
                 </p>
-                <div style="font-family:'Montserrat',sans-serif;font-size:10px;color:var(--text-accent);margin-top:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">
+                <div style="font-family:'Montserrat',sans-serif;font-size:12px;color:var(--text-accent);margin-top:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">
                     (Aporte sugerido a partir de S/ 30.00. ¡Gracias de corazón!)
                 </div>
             </div>
@@ -593,10 +612,10 @@
 
             <div class="bloque-vidrio reveal-text">
                 <div class="section-heading">Cámara en Vivo</div>
-                <p class="rsvp-intro" style="margin-bottom: 15px;">Ayúdame a capturar cada destello de esta noche. Toca el botón para subir tus fotos y videos directo a nuestra galería.</p>
+                <p class="rsvp-intro">Ayúdame a capturar cada destello de esta noche. Toca el botón para subir tus fotos y videos directo a nuestra galería.</p>
                 
                 <a href="https://drive.google.com/drive/folders/1yTFgpFdocCy6EIFpKcOT8_7wnewX4pm7?usp=sharing" target="_blank" style="text-decoration: none;">
-                    <button class="btn-confirmar">
+                    <button class="btn-confirmar" style="margin-top: 10px;">
                         <svg viewBox="0 0 24 24"><path d="M4 4h3l2-2h6l2 2h3c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm8 3c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>
                         Compartir Fotos Aquí
                     </button>
@@ -605,14 +624,25 @@
 
             <div class="divider-ornate reveal-text"><div class="divider-ornate-diamond"></div></div>
 
+            <!-- CONFIRMACIÓN CON SELECTOR -->
             <div class="bloque-vidrio-alt reveal-text">
                 <div class="section-heading">Confirmación de Asistencia</div>
                 <p class="rsvp-intro">Será un honor contar con tu luz en esta noche mágica. Por favor confirma tu asistencia.</p>
+                
                 <div class="rsvp-input-wrap">
                     <label class="rsvp-input-label" for="guest-name">Nombre Completo</label>
                     <input type="text" id="guest-name" class="rsvp-input" placeholder="Escribe tu nombre aquí…">
                 </div>
-                <button onclick="sendConfirmationViaWhatsApp()" class="btn-confirmar">
+
+                <div class="rsvp-input-wrap" style="margin-top: 15px;">
+                    <label class="rsvp-input-label" for="guest-attend">¿Nos acompañarás?</label>
+                    <select id="guest-attend" class="rsvp-input">
+                        <option value="Sí, ahí estaré">Sí, ahí estaré</option>
+                        <option value="No podré asistir">No podré asistir</option>
+                    </select>
+                </div>
+
+                <button onclick="sendConfirmationViaWhatsApp()" class="btn-confirmar" style="margin-top: 15px;">
                     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
                     Confirmar por WhatsApp
                 </button>
@@ -628,18 +658,18 @@
                         <label class="rsvp-input-label" for="wish-nombre">Tu nombre</label>
                         <input type="text" id="wish-nombre" class="rsvp-input" placeholder="Ej. Camila" required>
                     </div>
-                    <div class="rsvp-input-wrap">
+                    <div class="rsvp-input-wrap" style="margin-top: 15px;">
                         <label class="rsvp-input-label" for="wish-mensaje">Mensaje</label>
                         <textarea id="wish-mensaje" class="rsvp-input" placeholder="Escribe aquí tus buenos deseos..." required style="min-height: 120px; resize: vertical; padding-top: 15px;"></textarea>
                     </div>
-                    <button type="submit" id="btn-wish" class="btn-confirmar" style="margin-top: 10px;">
+                    <button type="submit" id="btn-wish" class="btn-confirmar" style="margin-top: 15px;">
                         <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                         Enviar Mensaje
                     </button>
                 </form>
             </div>
 
-            <div class="divider-ornate reveal-text" style="margin-top:30px;"><div class="divider-ornate-diamond"></div></div>
+            <div class="divider-ornate reveal-text" style="margin-top:35px;"><div class="divider-ornate-diamond"></div></div>
             <div class="invitation-footer reveal-text">Diseñado con ♥ por Invytia</div>
 
         </div>
@@ -667,7 +697,7 @@
                 decay:Math.random()*(burst?0.016:0.007)+0.005,
                 rotation:Math.random()*Math.PI*2,
                 rotSpeed:(Math.random()-0.5)*0.18,
-                color:Math.random()>0.5?'255,204,0':'255,255,255' // Dorado y blanco
+                color:Math.random()>0.5?'255,204,0':'255,255,255' 
             };
         }
         function createGlitterBurst(x,y){for(let i=0;i<20;i++)glitterParticles.push(makeParticle(x,y,true));}
@@ -704,11 +734,10 @@
         function startGlitter(){canvas.classList.add('visible');drawGlitter();setInterval(spawnAmbient,350);}
         document.addEventListener('click',e=>{if(document.body.classList.contains('content-active'))createGlitterBurst(e.clientX,e.clientY);});
 
-        /* ===== INTERSECTION OBSERVERS (TEXTOS & ITINERARIO) ===== */
+        /* ===== INTERSECTION OBSERVERS ====== */
         function initObservers(){
             const obsOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
             
-            // Textos
             const textObs = new IntersectionObserver((entries)=>{
                 entries.forEach(entry => {
                     if(entry.isIntersecting){
@@ -719,7 +748,6 @@
             }, obsOptions);
             document.querySelectorAll('.reveal-text').forEach(el => textObs.observe(el));
 
-            // Itinerario
             const itinObs = new IntersectionObserver((entries)=>{
                 entries.forEach(entry=>{
                     if(entry.isIntersecting){
@@ -733,7 +761,7 @@
             document.querySelectorAll('.itin-row').forEach(r => itinObs.observe(r));
         }
 
-        /* ===== SOBRE Y ANIMACIÓN PRINCIPAL ===== */
+        /* ===== ANIMACIÓN SOBRE ====== */
         (function(){
             const c = document.getElementById('env-stars');
             if (!c) return;
@@ -792,12 +820,14 @@
             icon.innerHTML=isPlaying?'<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>':'<path d="M8 5v14l11-7z"/>';
         }
 
-        /* ===== CONFIRMACIÓN WHATSAPP (NÚMERO PROPORCIONADO) ===== */
+        /* ===== CONFIRMACIÓN ====== */
         function sendConfirmationViaWhatsApp(){
-            const inp=document.getElementById('guest-name');
+            const inp = document.getElementById('guest-name');
+            const attend = document.getElementById('guest-attend').value;
+            
             if(!inp||!inp.value.trim()){alert('Por favor ingresa tu nombre completo.');inp.focus();return;}
-            const msg=`¡Hola! Confirmo mi asistencia a los XV Años de Antonella Vasquez Zamudio.\n\n• Nombre: ${inp.value.trim()}`;
-            // 51 es el código de país para Perú sugerido por el número de 9 dígitos.
+            
+            const msg=`¡Hola! Soy ${inp.value.trim()} y te escribo para confirmar que *${attend}* a los XV Años de Antonella.`;
             window.open(`https://wa.me/51947388235?text=${encodeURIComponent(msg)}`,'_blank');
         }
 
@@ -813,7 +843,7 @@
         const target=new Date("August 7, 2026 18:00:00").getTime();
         setInterval(()=>{
             const left=target-Date.now();
-            if(left<0){document.getElementById("countdown-timer").innerHTML="<div style='font-family:\"Cinzel\",serif;color:var(--text-gold);letter-spacing:2px;font-size:15px;text-transform:uppercase;text-shadow: 0 0 10px rgba(201,155,36,0.5);'>¡La magia ha comenzado!</div>";return;}
+            if(left<0){document.getElementById("countdown-timer").innerHTML="<div style='font-family:\"Cinzel\",serif;color:var(--text-gold);letter-spacing:2px;font-size:16px;text-transform:uppercase;text-shadow: 0 0 10px rgba(201,155,36,0.5);'>¡La magia ha comenzado!</div>";return;}
             const d=Math.floor(left/86400000),h=Math.floor(left%86400000/3600000),m=Math.floor(left%3600000/60000),s=Math.floor(left%60000/1000);
             document.getElementById("days").innerText=d<10?"0"+d:d;
             document.getElementById("hours").innerText=h<10?"0"+h:h;
@@ -824,15 +854,15 @@
         /* ===== LINTERNAS FLOTANTES ===== */
         function createLanterns(){
             const c=document.getElementById('lanterns-container');
-            for(let i=0;i<20;i++){
+            for(let i=0;i<25;i++){
                 const l=document.createElement('div'), w=Math.random()*15+12;
                 l.className='lantern-light';
-                l.style.cssText=`width:${w}px;height:${w*1.5}px;left:${Math.random()*100}%;bottom:-50px;animation-duration:${Math.random()*12+10}s;animation-delay:${Math.random()*8}s;`;
+                l.style.cssText=`width:${w}px;height:${w*1.5}px;left:${Math.random()*100}%;bottom:-50px;animation-duration:${Math.random()*14+12}s;animation-delay:${Math.random()*10}s;`;
                 c.appendChild(l);
             }
         }
 
-        /* ===== MURO DE DESEOS (AL APP SCRIPT) ===== */
+        /* ===== MURO DE DESEOS ====== */
         const WISH_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuWFYPYPsSC3hPkZ61UlYd9SbAn3cL3DS4GvSYQhYWx-zBAlR0XwkQfEyY0mKBGXO1/exec";
         const wishForm = document.getElementById('wish-form');
         
@@ -854,7 +884,6 @@
                         method: 'POST',
                         mode: 'no-cors', 
                         headers: { 'Content-Type': 'text/plain' },
-                        // Modificado para que tu script lo maneje o almacene
                         body: JSON.stringify({ type: 'wish', festejada: 'Antonella', nombre: nombre, mensaje: mensaje })
                     });
                 } catch(err) { 
